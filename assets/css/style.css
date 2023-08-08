@@ -1,4 +1,12 @@
+body{
+    background-color: rgb(175, 202, 236);
+}
+
 #testBtn{
     margin-top:10px;
 }
 
+#weather-icon{
+    height:100px;
+    width: 100px;
+}
