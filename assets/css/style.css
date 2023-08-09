@@ -1,9 +1,22 @@
 body{
     background-color: rgb(175, 202, 236);
+    justify-content: center;
+}
+
+.header{
+    font-size: 30px;
+    background-color: rgb(149, 186, 231);
+}
+
+.form-group{
+    width: 60%;
+   
 }
 
 #testBtn{
     margin-top:10px;
+    width: 30%;
+    margin-left: 35%;
 }
 
 #weather-icon{
@@ -12,16 +25,16 @@ body{
 }
 
 #previousList{
-    width:30%;
+    margin: auto;
+    justify-content: start;
+
 }
 
-.block{
-    display: block;
-    width: 100%;
-    border: none;
-    background-color: #04AA6D;
-    padding: 14px 28px;
-    font-size: 16px;
-    cursor: pointer;
-    text-align: center;
+#previousList button{
+    width:24.3%;
+    margin:5px;
+}
+
+.fiveDay{
+    background-color: rgb(149, 186, 231);
 }

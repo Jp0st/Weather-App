@@ -5,20 +5,22 @@ var cityData = [];
 
 
 
-    function fetchData() {
+    function fetchData(city) {
         var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey + "&units=imperial";
 
         fetch(queryURL)
             .then(function (response) {
                 return response.json();
-                // console.log(response);
             })
             .then(function (data) {
                 console.log(data);
                 var iconCurrent = data.list[0].weather[0].icon;
                 var iconLink = `http://openweathermap.org/img/w/${iconCurrent}.png`;
                 var date = data.list[0].dt_txt.split(" ");
+                $('#dailyResults').removeClass('d-none');
+                $('#fiveDayResults').removeClass('d-none');
                 $('#weather-icon').removeClass('d-none');
+                $('#previousList').removeClass('d-none');
                 $('#weather-icon').attr('src', iconLink);
                 $('#currentCity').text(data.city.name);
                 $('#currentDate').text(date[0]);
@@ -85,29 +87,37 @@ var cityData = [];
 
 function getCity() {
     city = $('#chosenCity').val();
+    
+
     console.log(city);
 }
 
 function savePrev() {
     $('#previousList').append($('<button>' + city + '</button>'));
-    $('#previousList').children().addClass('m-2');
-    $('#previousList').children().addClass('btn-dark');
+    $('#previousList').children().addClass('btn-primary');
+    $('#previousList').children().addClass('previousSearch');
+    $('#previousList').children().addClass('btn-sm');
+    
 
 }
 
-
-$('#testBtn').on('click', function () {
+$('#testBtn').on('click', function (event) {
     event.preventDefault();
-    getCity();
-    fetchData();
+    city = $('#chosenCity').val();
+    if(!city){
+        alert('Please enter a city');
+    }else{
+    fetchData(city);
     savePrev();
-
+    }
 });
 
-$('#previousList').on('click', 'button', function (event) {
+
+$('#previousList').on('click', '.previousSearch', function (event) {
     event.preventDefault();
     var city = $(this).text();
     console.log(city);
-    fetchData();
-
+    getCity();
+    fetchData(city);
 });
+
