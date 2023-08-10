@@ -1,4 +1,4 @@
-# Weather-App #
+# Weather-App
 ## Description
 
 I wanted to make a weather application that when inputting a city it provides you with the current date, temperature, wind, and humidity.  It also provides a 5 day forecast for the next few days in order to get an idea of what the coming week will be like. 
