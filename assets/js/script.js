@@ -1,13 +1,12 @@
-var APIKey = '1771befcd9ad6b3d3ca2ec762bf8b2db';
-var city = '';
-var cityData = [];
-
+const APIKey = '1771befcd9ad6b3d3ca2ec762bf8b2db';
+let city = '';
+let cityData = [];
 
 
 
 function fetchData(city) {
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey + "&units=imperial";
-        fetch(queryURL)
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + APIKey + "&units=imperial";
+    fetch(queryURL)
             .then(function (response) {
                 return response.json();
             })
